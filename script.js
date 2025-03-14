@@ -92,19 +92,14 @@ function loadQuestion() {
   const questionData = quizData[currentQuestion];
   questionContainer.innerHTML = `
     <h3>${questionData.question}</h3>
-    ${questionData.options
-      .map(
-        (option, index) => `
+    ${questionData.options.map((option, index) => `
         <label>
-          <input type="radio" name="answer" value="${index}">
-          ${option}
+          <input type="radio" name="answer" value="${index}"> ${option}
         </label><br>
       `
-      )
-      .join("")}
-  `;
+      ).join("")}`;
 }
-
+  
 function showResult() {
   resultContainer.style.display = "block";
   resultContainer.innerHTML = `Вы набрали ${score} из ${quizData.length} баллов!`;
